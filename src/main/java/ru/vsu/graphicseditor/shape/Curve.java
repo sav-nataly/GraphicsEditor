@@ -6,7 +6,6 @@ import java.util.List;
 
 public class Curve extends Shape {
     private int nPoints;
-    private int curvature;
 
     public Curve(List<Point> pointList, Color color, Color borderColor, int stroke) {
         super(pointList, color, borderColor, stroke);
@@ -21,29 +20,10 @@ public class Curve extends Shape {
     public Curve() {
     }
 
-    public Curve(List<Point> pointList, Color color, Color borderColor, int stroke, int curvature) {
-        super(pointList, color, borderColor, stroke);
-        this.curvature = curvature;
-        nPoints = pointList.size();
-    }
-
-    public Curve(List<Point> pointList, int curvature) {
-        super(pointList);
-        this.curvature = curvature;
-        nPoints = pointList.size();
-    }
-
-    public void setCurvature(int curvature) {
-        this.curvature = curvature;
-    }
-
     public int getNPoints() {
         return nPoints;
     }
 
-    public int getCurvature() {
-        return curvature;
-    }
 
     public void addPoint(Point point){
         getPointList().add(point);
@@ -67,7 +47,6 @@ public class Curve extends Shape {
     public String toString() {
         return "Curve " +
                 "nPoints=" + nPoints +
-                " curvature=" + curvature +
                 " pointList=" + getPointList().toString()
                 + " borderColor=" + getBorderColor()
                 + " color=" + getColor()

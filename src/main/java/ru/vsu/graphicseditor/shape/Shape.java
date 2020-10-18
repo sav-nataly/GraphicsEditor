@@ -2,6 +2,7 @@ package ru.vsu.graphicseditor.shape;
 
 import java.awt.*;
 import java.awt.Point;
+import java.util.Arrays;
 import java.util.List;
 
 public abstract class Shape {
@@ -10,12 +11,10 @@ public abstract class Shape {
     private Color borderColor;
     private int stroke;
 
-
-
-    private double minX;
-    private double minY;
-    private double maxX;
-    private double maxY;
+    private int minX;
+    private int minY;
+    private int maxX;
+    private int maxY;
 
     public Shape(List<Point> pointList, Color color, Color borderColor, int stroke) {
         this.pointList = pointList;
@@ -70,15 +69,15 @@ public abstract class Shape {
     }
 
     void setBounds(){
-        double minX = Integer.MAX_VALUE;
-        double maxX = -1;
-        double minY = Integer.MAX_VALUE;
-        double maxY = -1;
+        int minX = Integer.MAX_VALUE;
+        int maxX = -1;
+        int minY = Integer.MAX_VALUE;
+        int maxY = -1;
         for (Point p : pointList) {
-            minX = Math.min(p.getX(), minX);
-            maxX = Math.max(p.getX(), maxX);
-            minY = Math.min(p.getY(), minY);
-            maxY = Math.max(p.getY(), maxY);
+            minX = (int) Math.min(p.getX(), minX);
+            maxX = (int) Math.max(p.getX(), maxX);
+            minY = (int) Math.min(p.getY(), minY);
+            maxY = (int) Math.max(p.getY(), maxY);
         }
 
         this.minX = minX;
@@ -91,8 +90,11 @@ public abstract class Shape {
         return x >= minX & x <= maxX & y >= minY && y <= maxY;
     }
 
-    public double[] getBounds(){
-        return new double[]{minX, minY, maxX, maxY};
+    public List<Point> getBounds(){
+        return Arrays.asList(new Point(minX, minY), new Point(minX, maxY), new Point(maxX, maxY), new Point(maxX, minY));
+    }
+    public void updateBounds(){
+        setBounds();
     }
 
     @Override

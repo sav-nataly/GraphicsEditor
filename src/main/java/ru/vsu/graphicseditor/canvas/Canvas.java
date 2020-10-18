@@ -4,7 +4,6 @@ import java.awt.*;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-import ru.vsu.graphicseditor.shape.Shape;
 
 public class Canvas {
     private int width;

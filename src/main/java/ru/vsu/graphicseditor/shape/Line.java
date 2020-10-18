@@ -1,7 +1,5 @@
 package ru.vsu.graphicseditor.shape;
 
-import sun.awt.geom.Curve;
-
 import java.awt.*;
 import java.awt.Point;
 import java.util.Arrays;

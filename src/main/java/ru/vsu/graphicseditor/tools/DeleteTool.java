@@ -13,9 +13,8 @@ public class DeleteTool {
     }
 
     public static void deleteShape(int x1, int y1, int x2, int y2, List<Shape> shapeList){
-        List<Shape> selected = SelectTool.selectShape(x1, y1, x2, y2, shapeList);
-        if (selected.size() > 0){
-            shapeList.removeAll(selected);
+        if (shapeList.size() > 0){
+            shapeList.removeAll(shapeList);
         }
     }
 }
