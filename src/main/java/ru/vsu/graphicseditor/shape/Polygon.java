@@ -1,17 +1,18 @@
 package ru.vsu.graphicseditor.shape;
 
 import java.awt.*;
+import java.awt.Point;
 import java.util.List;
 
 public class Polygon extends Shape {
     private int nPoints;
 
-    public Polygon(List<PrimitivePoint> pointList, Color color, Color borderColor, int stroke) {
+    public Polygon(List<Point> pointList, Color color, Color borderColor, int stroke) {
         super(pointList, color, borderColor, stroke);
         nPoints = pointList.size();
     }
 
-    public Polygon(List<PrimitivePoint> pointList) {
+    public Polygon(List<Point> pointList) {
         super(pointList);
         nPoints = pointList.size();
     }
@@ -23,20 +24,20 @@ public class Polygon extends Shape {
         return nPoints;
     }
 
-    public void addPoint(PrimitivePoint point){
+    public void addPoint(Point point){
         getPointList().add(point);
         nPoints++;
         setBounds();
     }
 
     public void addPoint(int x, int y){
-        getPointList().add(new PrimitivePoint(x, y));
+        getPointList().add(new Point(x, y));
         nPoints++;
         setBounds();
     }
 
     public void deletePoint(int x, int y){
-        getPointList().remove(new PrimitivePoint(x, y));
+        getPointList().remove(new Point(x, y));
         nPoints--;
         setBounds();
     }

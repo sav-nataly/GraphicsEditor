@@ -1,20 +1,23 @@
 package ru.vsu.graphicseditor.shape;
 
 import java.awt.*;
+import java.awt.Point;
 import java.util.List;
 
 public abstract class Shape {
-    private List<PrimitivePoint> pointList;
+    private List<Point> pointList;
     private Color color;
     private Color borderColor;
     private int stroke;
 
-    private int minX;
-    private int minY;
-    private int maxX;
-    private int maxY;
 
-    public Shape(List<PrimitivePoint> pointList, Color color, Color borderColor, int stroke) {
+
+    private double minX;
+    private double minY;
+    private double maxX;
+    private double maxY;
+
+    public Shape(List<Point> pointList, Color color, Color borderColor, int stroke) {
         this.pointList = pointList;
         this.color = color;
         this.borderColor = borderColor;
@@ -22,23 +25,23 @@ public abstract class Shape {
         setBounds();
     }
 
-    public Shape(List<PrimitivePoint> pointList) {
+    public Shape(List<Point> pointList) {
         this.pointList = pointList;
         setBounds();
     }
 
     public Shape(){}
 
-    public List<PrimitivePoint> getPointList() {
+    public List<Point> getPointList() {
         return pointList;
     }
 
-    public void setPointList(List<PrimitivePoint> pointList) {
+    public void setPointList(List<Point> pointList) {
         this.pointList = pointList;
         setBounds();
     }
 
-    public PrimitivePoint getPoint(int index){
+    public Point getPoint(int index){
         return pointList.get(index);
     }
 
@@ -67,11 +70,11 @@ public abstract class Shape {
     }
 
     void setBounds(){
-        int minX = Integer.MAX_VALUE;
-        int maxX = -1;
-        int minY = Integer.MAX_VALUE;
-        int maxY = -1;
-        for (PrimitivePoint p : pointList) {
+        double minX = Integer.MAX_VALUE;
+        double maxX = -1;
+        double minY = Integer.MAX_VALUE;
+        double maxY = -1;
+        for (Point p : pointList) {
             minX = Math.min(p.getX(), minX);
             maxX = Math.max(p.getX(), maxX);
             minY = Math.min(p.getY(), minY);
@@ -86,6 +89,10 @@ public abstract class Shape {
 
     public boolean inBounds(int x, int y){
         return x >= minX & x <= maxX & y >= minY && y <= maxY;
+    }
+
+    public double[] getBounds(){
+        return new double[]{minX, minY, maxX, maxY};
     }
 
     @Override
