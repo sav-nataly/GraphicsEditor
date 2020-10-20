@@ -7,9 +7,7 @@ public class Calculations {
         int deltaY1 = y1 - cY;
         int deltaY2 = y2 - cY;
 
-        double cos = (deltaX1 * deltaX2 + deltaY1 * deltaY2) / Math.sqrt(deltaX1 * deltaX1 + deltaY1 *deltaY1)
+        return (deltaX1 * deltaX2 + deltaY1 * deltaY2) / Math.sqrt(deltaX1 * deltaX1 + deltaY1 *deltaY1)
                 / Math.sqrt(deltaX2 * deltaX2 + deltaY2 * deltaY2);
-
-        return cos;
     }
 }

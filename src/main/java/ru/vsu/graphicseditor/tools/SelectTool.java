@@ -2,8 +2,6 @@ package ru.vsu.graphicseditor.tools;
 
 import ru.vsu.graphicseditor.shape.Shape;
 
-import java.awt.*;
-import java.util.ArrayList;
 import java.util.List;
 
 public class SelectTool {

@@ -6,7 +6,7 @@ import ru.vsu.graphicseditor.shape.Shape;
 import java.awt.*;
 
 public class EditTool {
-    public static void moveShape(int x1, int y1, int x2, int y2, Shape shape){
+    public static void moveShape(int x1, int y1, int x2, int y2, Shape shape) {
         int deltaX = x2 - x1;
         int deltaY = y2 - y1;
 
@@ -14,16 +14,16 @@ public class EditTool {
         shape.updateBounds();
     }
 
-    public static void scaleShape(int x1, int y1, int x2, int y2, Shape shape){
+    public static void scaleShape(int x1, int y1, int x2, int y2, Shape shape) {
         int movingPointIndex = shape.getBounds().indexOf(new Point(x1, y1));
 
-        if (movingPointIndex > -1){
+        if (movingPointIndex > -1) {
             int deltaX = x2 - x1;
             int deltaY = y2 - y1;
             int width = shape.getBounds().get(3).x - shape.getBounds().get(0).x;
             int height = shape.getBounds().get(1).y - shape.getBounds().get(0).y;
 
-            Point scalingPoint = shape.getBounds().get(movingPointIndex >= 2 ? movingPointIndex - 2 : movingPointIndex  + 2);
+            Point scalingPoint = shape.getBounds().get(movingPointIndex >= 2 ? movingPointIndex - 2 : movingPointIndex + 2);
 
             moveShape(scalingPoint.x, scalingPoint.y, 0, 0, shape);
 
@@ -34,7 +34,7 @@ public class EditTool {
         }
     }
 
-    public static void rotateShape(int x1, int y1, int x2, int y2, Shape shape){
+    public static void rotateShape(int x1, int y1, int x2, int y2, Shape shape) {
         int centerX = (shape.getBounds().get(0).x + shape.getBounds().get(2).x) / 2;
         int centerY = (shape.getBounds().get(0).y + shape.getBounds().get(2).y) / 2;
 
@@ -43,8 +43,8 @@ public class EditTool {
 
         moveShape(centerX, centerY, 0, 0, shape);
 
-        shape.getPointList().forEach(p -> p.setLocation((int)(p.getX() * cos + p.getY() * sin),
-                (int) ( - p.getX() * sin + p.getY() * cos)));
+        shape.getPointList().forEach(p -> p.setLocation((int) (p.getX() * cos + p.getY() * sin),
+                (int) (-p.getX() * sin + p.getY() * cos)));
 
         moveShape(0, 0, centerX, centerY, shape);
     }
