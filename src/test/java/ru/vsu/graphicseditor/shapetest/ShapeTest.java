@@ -1,19 +1,17 @@
 package ru.vsu.graphicseditor.shapetest;
 
 import org.junit.Test;
-import ru.vsu.graphicseditor.canvas.Canvas;
 import ru.vsu.graphicseditor.shape.*;
 
 import java.awt.Point;
 import java.util.ArrayList;
-import java.util.List;
 
 import static org.junit.Assert.*;
 
 
 public class ShapeTest {
     @Test
-    public void shapeTest(){
+    public void shapeTest() {
         ArrayList<java.awt.Point> pointArrayList = new ArrayList<>();
         pointArrayList.add(new Point(3, 4));
         pointArrayList.add(new Point(5, 6));

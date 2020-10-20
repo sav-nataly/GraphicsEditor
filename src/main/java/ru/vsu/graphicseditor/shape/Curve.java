@@ -25,19 +25,19 @@ public class Curve extends Shape {
     }
 
 
-    public void addPoint(Point point){
+    public void addPoint(Point point) {
         getPointList().add(point);
         nPoints++;
         setBounds();
     }
 
-    public void addPoint(int x, int y){
+    public void addPoint(int x, int y) {
         getPointList().add(new Point(x, y));
         nPoints++;
         setBounds();
     }
 
-    public void deletePoint(int x, int y){
+    public void deletePoint(int x, int y) {
         getPointList().remove(new Point(x, y));
         nPoints--;
         setBounds();

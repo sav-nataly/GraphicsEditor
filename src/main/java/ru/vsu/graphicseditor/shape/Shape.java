@@ -29,7 +29,8 @@ public abstract class Shape {
         setBounds();
     }
 
-    public Shape(){}
+    public Shape() {
+    }
 
     public List<Point> getPointList() {
         return pointList;
@@ -40,7 +41,7 @@ public abstract class Shape {
         setBounds();
     }
 
-    public Point getPoint(int index){
+    public Point getPoint(int index) {
         return pointList.get(index);
     }
 
@@ -68,7 +69,7 @@ public abstract class Shape {
         this.stroke = stroke;
     }
 
-    void setBounds(){
+    void setBounds() {
         int minX = Integer.MAX_VALUE;
         int maxX = -1;
         int minY = Integer.MAX_VALUE;
@@ -86,14 +87,15 @@ public abstract class Shape {
         this.maxY = maxY;
     }
 
-    public boolean inBounds(int x, int y){
+    public boolean inBounds(int x, int y) {
         return x >= minX & x <= maxX & y >= minY && y <= maxY;
     }
 
-    public List<Point> getBounds(){
+    public List<Point> getBounds() {
         return Arrays.asList(new Point(minX, minY), new Point(minX, maxY), new Point(maxX, maxY), new Point(maxX, minY));
     }
-    public void updateBounds(){
+
+    public void updateBounds() {
         setBounds();
     }
 

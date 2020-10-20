@@ -14,7 +14,7 @@ public class Line extends Shape {
         super(pointList);
     }
 
-    public Line(int x1, int y1, int x2, int y2, Color color, Color borderColor, int stroke){
+    public Line(int x1, int y1, int x2, int y2, Color color, Color borderColor, int stroke) {
         super(Arrays.asList(new Point(x1, y1), new Point(x2, y2)), color, borderColor, stroke);
     }
 

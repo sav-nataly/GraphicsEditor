@@ -1,6 +1,5 @@
 package ru.vsu.graphicseditor.shapetest;
 
-import org.graalvm.compiler.core.common.type.ArithmeticOpTable;
 import org.junit.Test;
 import ru.vsu.graphicseditor.canvas.Canvas;
 import ru.vsu.graphicseditor.shape.Line;
@@ -10,13 +9,13 @@ import ru.vsu.graphicseditor.tools.*;
 
 import java.awt.*;
 import java.util.Arrays;
-import java.util.List;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
 public class CanvasTest {
     Canvas canvas = new Canvas(700, 700, Color.WHITE);
+
     @Test
     public void layerTest() {
 
@@ -80,7 +79,7 @@ public class CanvasTest {
     }
 
     @Test
-    public void transformationTest(){
+    public void transformationTest() {
         Line line = new Line(120, 120, 30, 30, Color.BLACK, Color.BLACK, 2);
         canvas.addShapeLayer(AddTool.add(line, canvas.getCurrentLayerNumber() + 1));
 
@@ -99,7 +98,7 @@ public class CanvasTest {
     }
 
     @Test
-    public void deleteTest(){
+    public void deleteTest() {
         canvas.addNewLayer();
         canvas.addNewLayer();
         canvas.addNewLayer();

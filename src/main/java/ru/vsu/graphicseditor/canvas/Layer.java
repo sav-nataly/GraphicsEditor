@@ -15,6 +15,7 @@ public class Layer {
         this.shapes = shapes;
         name = "Layer" + layerNum;
     }
+
     public Layer(Shape shape, int layerNum) {
         shapes.add(shape);
         name = "Layer" + layerNum;
@@ -49,15 +50,15 @@ public class Layer {
         this.backgroundColor = backgroundColor;
     }
 
-    public void addShape(Shape shape){
+    public void addShape(Shape shape) {
         shapes.add(shape);
     }
 
-    public void addShapes(List<Shape> shapes){
+    public void addShapes(List<Shape> shapes) {
         shapes.addAll(shapes);
     }
 
-    public void deleteShape(Shape shape){
+    public void deleteShape(Shape shape) {
         shapes.remove(shape);
     }
 }

@@ -31,7 +31,8 @@ public class Canvas {
         layerList.add(new Layer((Color) null, 0));
     }
 
-    public Canvas(){}
+    public Canvas() {
+    }
 
     public int getWidth() {
         return width;
@@ -62,7 +63,7 @@ public class Canvas {
         return currentLayer;
     }
 
-    public Layer getCurrentLayer(){
+    public Layer getCurrentLayer() {
         return layerList.get(currentLayer);
     }
 
@@ -70,8 +71,8 @@ public class Canvas {
         this.currentLayer = currentLayer;
     }
 
-    public void addNewLayer(){
-        layerList.add(currentLayer  + 1, new Layer(layerList.size()));
+    public void addNewLayer() {
+        layerList.add(currentLayer + 1, new Layer(layerList.size()));
         currentLayer++;
     }
 
@@ -80,16 +81,15 @@ public class Canvas {
         currentLayer++;
     }
 
-    public void addLayers(List<Layer> layers){
-        layerList.addAll(currentLayer + 1 , layers);
+    public void addLayers(List<Layer> layers) {
+        layerList.addAll(currentLayer + 1, layers);
         currentLayer += layers.size();
     }
 
     public void moveLayer(int index1, int index2) {
         if (Math.abs(index1 - index2) == 1) {
             Collections.swap(layerList, index1, index2);
-        }
-        else {
+        } else {
             Layer layer = layerList.remove(index1);
             layerList.add(index2, layer);
         }
@@ -101,7 +101,7 @@ public class Canvas {
         }
     }
 
-    public void renameLayer(int index, String name){
+    public void renameLayer(int index, String name) {
         layerList.get(index).setName(name);
     }
 
